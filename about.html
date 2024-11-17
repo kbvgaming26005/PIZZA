@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzeria</title>
+    <link rel="icon" href="fav.ico.png" sizes="32x32" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box; 
+            font-family: 'Montserrat', sans-serif;
+        }
+        .hero {
+            min-height: 100vh;
+            width: 100%;
+            position: relative;
+            overflow: hidden; 
+        }
+        .pizzavid {
+            position: absolute;
+            filter: brightness(70%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            z-index: -1;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 45px;
+            padding-left: 7%;
+            padding-right: 7%;
+            position: relative;
+        }
+        .logo img {
+            width: 100px;
+            cursor: pointer;
+        }
+        nav ul {
+            display: flex; 
+            list-style: none;
+        }
+        nav ul li {
+            padding: 0px 25px;
+            transition: transform 0.3s; 
+        }
+        nav ul li:hover {
+            transform: scale(1.1);
+        }
+        nav ul a {
+            color: #ffff;
+            font-size: 17px;
+            letter-spacing: 3px;
+            font-weight: bold;
+            text-decoration: none; 
+            transition: color 0.3s; 
+        }
+        nav ul a:hover {
+            color: #F87453; 
+        }
+        button {
+            background: #F87453;
+            padding: 12px 20px;
+            border: 2px solid #ffff;
+            color: white;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 7px;
+            letter-spacing: 2px;
+        }
+        button:hover {
+            background: transparent;
+            border: 2px solid #F87453;
+            color: #F87453;
+            transform: scale(0.9);
+            transition: .4s;
+            cursor: pointer;
+        }
+        .menu-button {
+            display: none; 
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .menu-button div {
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            margin: 4px;
+            transition: all 0.3s;
+        }
+        .nav-links {
+            display: flex;
+        }
+       
+        @media only screen and (max-width: 768px) {
+            .menu-button {
+                display: flex; 
+            }
+            nav ul {
+                display: none; 
+                flex-direction: column; 
+                position: absolute;
+                top: 60px;
+                left: 7%;
+                background: rgba(25, 25, 25, 0.8);
+                width: 86%; 
+            }
+            nav ul.show {
+                display: flex; 
+            }
+        }
+        .container {
+            margin: 90px auto;
+            text-align: center;
+            padding-bottom: 50px; 
+        }
+        h1 {
+            font-family: Montserrat;
+            letter-spacing: 1px;
+            color: #ffff;
+            font-weight: 900;
+        }
+        h1:after {
+            content: '';
+            background: white;
+            display: block;
+            width: 150px;
+            height: 3px;
+            margin: 10px auto;
+        }
+        .all-services {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .service {
+            overflow: hidden;
+            border: 2px solid #ffff;
+            color: #ffff;
+            font-weight: bold;
+            text-align: center;
+            width: 290px;
+            height: 400px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1.2rem;
+            margin: 2rem;
+        }
+        .service:hover img {
+            scale: 1.1;
+        }
+        .service:hover {
+            box-shadow: 5px 15px 25px #eeeeee;
+        }
+        .service img {
+            height: 100px;
+            margin: 1rem;
+            transition: all 0.3s;
+        }
+        @media only screen and (max-width: 768px) {
+            .all-services {
+                flex-direction: column; 
+                align-items: center; 
+            }
+            .service {
+                width: 90%; 
+                margin: 1rem 0; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <video autoplay loop muted class="pizzavid">
+            <source src="vid.mp4" type="video/mp4">
+        </video>
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="Pizzeria Logo">
+            </div>
+            <div class="menu-button" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <ul id="navLinks">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <a href="menu.html"><button type="button">Order Now</button></a>
+        </nav>
+        
+        <section class="container">
+            <h1>Our Services</h1>
+            <div class="all-services">
+                <div class="service">
+                    <h4 class="title">Dine In</h4>
+                    <img src="dine.png" alt="Dine In">
+                    <div class="service-info">
+                        <p class="subcontent">Enjoy a delightful dine-in experience, complete with friendly service and a cozy atmosphere that makes every gathering special.</p>
+                    </div>
+                </div>
+                
+                <div class="service">
+                    <h4 class="title">Takeout</h4>
+                    <img src="takeout.png" alt="Takeout">
+                    <div class="service-info">
+                        <p class="subcontent">Grab your favorite pizza on the go with our quick and convenient takeout service, perfect for busy days or spontaneous cravings.</p>
+                    </div>
+                </div>
+                
+                <div class="service">
+                    <h4 class="title">Fast Delivery</h4>
+                    <img src="deliver.png" alt="Fast Delivery">
+                    <div class="service-info">
+                        <p class="subcontent">Enjoy the excitement of a pizza night at home. Our fast delivery guarantees that the only thing you’ll be waiting for is the first delicious slice.</p>
+                    </div>
+                </div>
+                
+                <div class="service">
+                    <h4 class="title">Order Online</h4>
+                    <img src="order.png" alt="Order Online">
+                    <div class="service-info">
+                        <p class="subcontent">Get ready for a pizza party at home; with our quick and easy online ordering, your fresh, hot pies will be ready in no time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>

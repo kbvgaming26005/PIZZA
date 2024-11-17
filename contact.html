@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Contact Form</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .hero {
+            height: 100vh;
+            width: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(cbg.jpg);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 45px;
+            padding-left: 7%;
+            padding-right: 7%;
+            position: relative;
+        }
+
+        .logo img {
+            width: 100px;
+            cursor: pointer;
+        }
+
+        nav ul {
+            display: flex; 
+            list-style: none;
+        }
+        nav ul li {
+            padding: 0px 25px;
+            transition: transform 0.3s; 
+        }
+        nav ul li:hover {
+            transform: scale(1.1);
+        }
+        nav ul a {
+            color: #ffff;
+            font-size: 17px;
+            letter-spacing: 3px;
+            font-weight: bold;
+            text-decoration: none; 
+            transition: color 0.3s; 
+        }
+        nav ul a:hover {
+            color: #F87453; 
+        }
+
+        .menu {
+            display: none;
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button {
+            background: #F87A53;
+            padding: 12px 20px;
+            border: 2px solid #ffff;
+            color: white;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 7px;
+            letter-spacing: 2px;
+        }
+
+        button:hover {
+            background: transparent;
+            border: 2px solid #F87A53;
+            color: #F87A53;
+            transform: scale(0.9);
+            transition: .4s;
+            cursor: pointer;
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            margin-top: 100px;
+            margin-left: 220px;
+        }
+
+        .container-right {
+            margin-left: 50px;
+        }
+
+        .container-right iframe {
+            border-radius: 15px;
+            width: 390px;
+            height: 400px;
+        }
+
+        .container form {
+            width: 100%;
+            max-width: 670px;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            flex-wrap: wrap;
+            overflow-y: auto;
+            max-height: 70vh;
+        }
+
+        .container form h2 {
+            color: #ffff;
+            font-weight: 500;
+            margin-top: 20px;
+            margin-bottom: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+        .container form h2:after {
+            content: '';
+            background: white;
+            display: block;
+            width: 100px;
+            height: 2px;
+            margin: 10px auto;
+        }
+
+        .container form p {
+            color: #ffff;
+            font-weight: 400;
+            margin-bottom: 10px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .container form input {
+            color: white;
+            width: 100%;
+            max-width: 290px;
+            height: 40px;
+            padding-left: 10px;
+            outline: none;
+            border: none;
+            font-size: 15px;
+            margin-bottom: 10px;
+            background: none;
+            border-bottom: 2px solid #ffff;
+        }
+
+        .container form input::placeholder {
+            color: #ddd;
+            font-weight: bold;
+        }
+
+        .container form #lastname,
+        .container form #phone{
+            margin-left: 25px;
+
+        }
+
+        .container form h4 {
+            color: #fff;
+            font-weight: 300;
+            width: 100%;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .container form textarea {
+            background: none;
+            border: none;
+            width: 100%;
+            max-width: 590px;
+            border-bottom: 2px solid #fff;
+            font-weight: 200;
+            font-size: 15px;
+            padding: 10px;
+            outline: none;
+            color: white;
+        }
+
+        .container form #button {
+            width: 100%;
+            padding: 10px;
+            background: #F87A53;
+            border: none;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            border-radius: 7px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 750px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background-color: rgba(0, 0, 0, 0.8);
+                width: 100%;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .menu {
+                display: block;
+            }
+
+            .container {
+                margin: 100px 20px;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .container-right {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+
+            .container form {
+                max-width: 100%;
+                padding: 15px;
+            }
+
+            .container form input,
+            .container form textarea,
+            .container form #button {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .container form h2,
+            .container form p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hero">
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="Logo">
+            </div>
+            <div class="menu" onclick="toggleMenu()">&#9776;</div>
+            <ul>
+                <a href="about.html"><li>Home</li></a>
+                <a href="about.html"><li>About Us</li></a>
+                <a href="menu.html"><li>Menu</li></a>
+                <li><a href="contact.html">Contact Us</a></li>
+
+            </ul>
+            <a href="menu.html"><button type="button">Order Now</button></a>
+        </nav>
+
+        <div class="container">
+            <form method="POST" action="https://api.web3forms.com/submit">
+                <h2>Get In Touch</h2>
+                <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+                <input type="hidden" name="access_key" value="7e12573a-c512-450d-a9e0-dc82297b0438" />
+                <input id="firstname" name="name" placeholder="First Name" type="text" required />
+                <input id="lastname" name="lastname" placeholder="Last Name" type="text" required />
+                <input id="email" name="email" placeholder="E-mail" type="email" required />
+                <input id="phone" name="phone" placeholder="Contact Number" type="number" required />
+                <h4>Type your message here...</h4>
+                <textarea name="message" required></textarea>
+                <input type="submit" value="Submit" id="button">
+            </form>
+
+            <div class="container-right">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15700.84577225918!2d123.9055626!3d10.3249566!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a99921dc1502cd%3A0x14da459df63f6995!2sCebu%20I.T.%20Park!5e0!3m2!1sen!2sph!4v1729648898995!5m2!1sen!2sph" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+      </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('nav ul');
+            menu.classList.toggle('active');
+        }
+    </script>
+    
+</body>
+</html>
